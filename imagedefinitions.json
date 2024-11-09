@@ -1,0 +1,6 @@
+[
+    {
+      "name": "lusgo-lusgo-container",
+      "imageUri": "563431165277.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest"
+    }
+]     
