@@ -4,15 +4,15 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 563431165277.dkr.ecr.us-west-2.amazonaws.com
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 600627363478.dkr.ecr.us-west-2.amazonaws.com
       - echo Logging in to Docker Hub...
       - aws secretsmanager get-secret-value --secret-id dockerHubCredentials --query 'SecretString' --output text | jq -r '. | "docker login -u \(.username) -p \(.password)"' | sh
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t 563431165277.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest .
-      - docker tag 563431165277.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest 563431165277.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest
+      - docker build -t 600627363478.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest .
+      - docker tag 600627363478.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest 600627363478.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest
   post_build:
     commands:
       - echo Pushing the Docker image to ECR...
-      - docker push 563431165277.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest
+      - docker push 600627363478.dkr.ecr.us-west-2.amazonaws.com/lusgo-lusgo-ecr-repo:latest
